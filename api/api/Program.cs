@@ -61,23 +61,18 @@ builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-// CORS
-app.UseCors("AllowAll");
-app.UseHttpsRedirection();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+// CORS
+app.UseCors("AllowAll");
+app.UseHttpsRedirection();
 
 // AUTHORIZATION
 app.UseAuthentication();
 app.UseAuthorization();
-
-app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

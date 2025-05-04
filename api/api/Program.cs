@@ -7,7 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddScoped<AuthService>();
@@ -25,12 +25,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
-    {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
-    });
+    options.AddPolicy(MyAllowSpecificOrigins,
+        policy =>
+        {
+            policy.WithOrigins("http://shofee.johnlodantojot.pro",
+                                "http://localhost:4200")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod()
+                                .WithMethods("PUT", "POST","DELETE", "GET");
+        });
 });
 
 var jwtKey = builder.Configuration["Jwt:Key"];
@@ -68,7 +71,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 // CORS
-app.UseCors("AllowAll");
+app.UseCors(MyAllowSpecificOrigins);
 app.UseHttpsRedirection();
 
 // AUTHORIZATION

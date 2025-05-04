@@ -95,9 +95,15 @@ export class CategoryListComponent {
           this.toastr.success('Category updated successfully!', 'Success');
           this.closeModal();
         },
-        error: () => {
-          this.toastr.error('Failed to update category!', 'Error');
-        },
+        error: (err) => {
+          if (err.error && err.error.errors) {
+            Object.keys(err.error.errors).forEach(key => {
+              this.toastr.error(err.error.errors[key].join(' '), `Error in ${key}`);
+            });
+          } else {
+            this.toastr.error('Failed to create category!', 'Error');
+          }
+        }
       });
     } else {
       this.categoryService.create(this.category).subscribe({
@@ -106,9 +112,15 @@ export class CategoryListComponent {
           this.toastr.success('Category successfully created!', 'Success');
           this.closeModal();
         },
-        error: () => {
-          this.toastr.error('Failed to create category!', 'Error');
-        },
+        error: (err) => {
+          if (err.error && err.error.errors) {
+            Object.keys(err.error.errors).forEach(key => {
+              this.toastr.error(err.error.errors[key].join(' '), `Error in ${key}`);
+            });
+          } else {
+            this.toastr.error('Failed to create category!', 'Error');
+          }
+        }
       });
     }
   }

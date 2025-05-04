@@ -5,6 +5,15 @@ This project is primarily designed for **learning** and **practice** purposes, f
 While it's perfect for practice, it can also serve as a foundation for building real-world apps, with room for expansion and improvement as needed.
 ---
 
+## 🌐 Live Demo
+
+[👉 Try the app live](http://shofee.johnlodantojot.pro/)
+
+```bash
+http://shofee.johnlodantojot.pro/
+
+```
+
 ## 🧪 Tech Stack
 
 - **Frontend:** Angular 19.x+, TypeScript, RxJS, SCSS, TailwindCSS, JWT Authentication, AuthGuard

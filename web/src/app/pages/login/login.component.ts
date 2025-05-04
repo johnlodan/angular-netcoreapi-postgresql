@@ -18,7 +18,7 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService, private loginService: LoginService) {
     this.loginForm = this.fb.group({
-      email: ['admin@gmail.com', [Validators.required, Validators.email]],
+      email: ['user@gmail.com', [Validators.required, Validators.email]],
       password: ['123456', [Validators.required, Validators.minLength(6)]],
     });
   }

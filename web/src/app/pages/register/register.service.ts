@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IRegisterUser } from './models/register.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
-  private baseUrl = 'https://localhost:7011/api'
+  private baseUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 

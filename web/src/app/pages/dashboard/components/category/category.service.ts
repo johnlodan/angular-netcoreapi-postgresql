@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../../../../environments/environment';
 
 interface Category {
   id: number;
@@ -13,8 +14,7 @@ interface Category {
   providedIn: 'root'
 })
 export class CategoryService {
-  private baseUrl = 'https://localhost:7011/api'
-
+  private baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) { }
 
   getAllPublic(page = 1, limit = 5): Observable<Category> {

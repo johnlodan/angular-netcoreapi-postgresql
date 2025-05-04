@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../../../environments/environment';
 
 interface Category {
   id: number;
@@ -13,7 +14,7 @@ interface Category {
   providedIn: 'root'
 })
 export class CategoryListService {
-  private baseUrl = 'https://localhost:7011/api'
+  private baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) { }
   getAll(page = 1, limit = 5): Observable<Category> {
     const token = localStorage.getItem('authToken');

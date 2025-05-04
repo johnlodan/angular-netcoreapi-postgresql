@@ -6,6 +6,10 @@
 /web/out-tsc
 /web/bazel-out
 
+
+web/src/environments/
+
+
 # Node
 /web/node_modules
 /web/npm-debug.log

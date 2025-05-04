@@ -61,6 +61,10 @@ builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
+// CORS
+app.UseCors("AllowAll");
+app.UseHttpsRedirection();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -71,10 +75,6 @@ if (app.Environment.IsDevelopment())
 // AUTHORIZATION
 app.UseAuthentication();
 app.UseAuthorization();
-
-// CORS
-app.UseCors("AllowAll");
-app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

@@ -20,6 +20,15 @@
                             }" class="w-full py-2 rounded font-semibold transition duration-200">
                         Login
                     </button>
+
+                    <div class="text-center p-4">-- OR --</div>
+
+                    <button (click)="redirectToLogin()" [disabled]="loginForm.invalid" [ngClass]="{
+                                'bg-gray-400 text-gray-600 opacity-50 cursor-not-allowed': loginForm.invalid,
+                                'bg-[#f05d40] hover:bg-[#d94f37] text-white': loginForm.valid
+                            }" class="w-full py-2 rounded font-semibold transition duration-200">
+                        Register
+                    </button>
                 </form>
             </div>
         </div>

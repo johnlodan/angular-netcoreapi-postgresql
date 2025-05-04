@@ -23,6 +23,9 @@ export class LoginComponent {
     });
   }
 
+  redirectToLogin() {
+    this.router.navigate(['/register'])
+  }
   onSubmit() {
     if (this.loginForm.valid) {
       const data: ILogin = this.loginForm.value

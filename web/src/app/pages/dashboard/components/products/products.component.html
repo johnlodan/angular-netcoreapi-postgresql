@@ -1,0 +1,33 @@
+<div class="products bg-white shadow-md rounded-sm w-full my-3">
+    <div class="header-wrapper">
+        <h1>DAILY DISCOVER</h1>
+    </div>
+</div>
+<div class="product-items grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-3">
+    <div *ngFor="let product of productsData"
+        class="card bg-white shadow h-[300px] flex items-center justify-center hover:border-[1px] hover:border-[#ee4d2d] hover:shadow-none hover:cursor-pointer transition-all duration-300"
+        (click)="redirectToProduct(product.id)">
+        <div class="flex flex-col">
+            <div class="w-full h-[160px] mb-2">
+                <img [src]="product.image" [alt]="product.name" class="w-full h-full mb-2" />
+            </div>
+            <div class="flex px-2">
+                <span class="text-[14px] inline-flex items-start flex-wrap">
+                    <img src="https://down-ph.img.susercontent.com/file/ph-11134258-7r98z-lyanc24khwfua5"
+                        class="w-[60px] h-[15px] mr-2 max-w-[60px]">
+                    <span class="flex-grow">{{ truncate(product.name, 42) }}</span>
+                </span>
+            </div>
+            <div class="promo">
+                <span>5.5 SALE</span>
+            </div>
+            <div class="price">
+                <span>₱{{product.price}}</span>
+                <span>{{product.sold}} sold</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div style="margin-bottom: 600px;"></div>

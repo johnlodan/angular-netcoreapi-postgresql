@@ -1,0 +1,58 @@
+<div class="w-full">
+    <button (click)="openModal()" class="text-black px-4 py-2 rounded mb-4 border">
+        <i class="fas fa-folder-plus text-[#f05d40]"></i>&nbsp; <span>Create Category</span>
+    </button>
+
+    <div *ngIf="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md">
+            <h2 class="text-xl font-semibold mb-4">{{ isEditing ? 'Edit Category' : 'Create Category' }}</h2>
+
+            <label class="block mb-2">Name</label>
+            <input type="text" [(ngModel)]="category.name" class="w-full border rounded px-3 py-2 mb-4" />
+
+            <label class="block mb-2">Description</label>
+            <input type="text" [(ngModel)]="category.description" class="w-full border rounded px-3 py-2 mb-4" />
+
+            <label class="block mb-2">Image URL</label>
+            <input type="text" [(ngModel)]="category.image" class="w-full border rounded px-3 py-2 mb-4" />
+
+            <div class="flex justify-end">
+                <button (click)="closeModal()" class="mr-2 px-4 py-2 bg-gray-300 rounded">Cancel</button>
+                <button (click)="submitCategory()" class="px-4 py-2 text-white rounded bg-[#f05d40]">
+                    {{ isEditing ? 'Update' : 'Submit' }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <ngx-datatable class="bootstrap w-full" [columnMode]="'force'" [footerHeight]="50" [rowHeight]="'auto'"
+        [rows]="categories" [count]="totalCount" [limit]="pageSize" [externalPaging]="true"
+        (page)="pageChanged($event)">
+
+        <ngx-datatable-column name="#" prop="id"></ngx-datatable-column>
+        <ngx-datatable-column name="Name" prop="name"></ngx-datatable-column>
+        <ngx-datatable-column name="Description" prop="description"></ngx-datatable-column>
+
+        <ngx-datatable-column name="Image" prop="image" [headerClass]="'text-right'" [cellClass]="'text-right'">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <div class="flex justify-end">
+                    <img [src]="row.image" alt="Image" class="h-10 w-10 object-cover rounded">
+                </div>
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Actions" [headerClass]="'text-right'" [cellClass]="'text-right'">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                <div class="flex justify-end">
+                    <button (click)="editCategory(row.id)" class="text-blue-500 hover:text-blue-700 mx-2">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button (click)="deleteCategory(row.id)" class="text-red-500 hover:text-red-700 mx-2">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+            </ng-template>
+        </ngx-datatable-column>
+
+    </ngx-datatable>
+</div>

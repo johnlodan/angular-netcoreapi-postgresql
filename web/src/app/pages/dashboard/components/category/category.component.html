@@ -1,0 +1,12 @@
+<div class="category bg-white shadow-md rounded-sm p-4 w-full my-5">
+    <h1>CATEGORIES</h1>
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(110px,1fr))] p-4">
+        <div *ngFor="let category of categoryData"
+            class="bg-white shadow h-[170px] flex items-center justify-center hover:shadow-2xl hover:cursor-pointer transition-all duration-300">
+            <div class="flex flex-col items-center text-center p-2">
+                <img [src]="category.image" [alt]="category.name" class="w-[80px] h-[80px] mb-2" />
+                <span class="text-[12px]">{{category.name}}</span>
+            </div>
+        </div>
+    </div>
+</div>

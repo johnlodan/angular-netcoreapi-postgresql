@@ -1,0 +1,30 @@
+::ng-deep .datatable-footer .pager li {
+    /* Custom background */
+    color: white;
+    /* Text color */
+    padding: 8px 12px;
+    border-radius: 5px;
+    /* Rounded corners */
+    margin: 4px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+
+    a {
+        text-align: center;
+        background-color: #f05d40;
+        margin: 4px;
+        padding: 5px;
+        font-size: 10px;
+    }
+}
+
+::ng-deep .datatable-footer .pager li.active {
+    background-color: #e04a30;
+    /* Different color for active page */
+    font-weight: bold;
+}
+
+::ng-deep .datatable-footer .pager li:hover {
+    background-color: #d9432b;
+    transform: scale(1.1);
+}

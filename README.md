@@ -1,8 +1,8 @@
-# 🧾 POS CRUD Starter Template (Angular ⦾ .NET Core API ⦾ PostgreSQL)
+# 🧾 OMS CRUD Starter Template (Angular ⦾ .NET Core API ⦾ PostgreSQL)
 
-A beginner-friendly yet production-extendable template for building a Point of Sale (POS) system using **Angular ⦾ .NET Core Web API ⦾ PostgreSQL**.  
-This project features full **CRUD operations**, **role-based authentication**, and a modular architecture designed for clean separation of concerns — ideal for learning or building real-world apps.
-
+A beginner-friendly yet **production-extendable** template for building an **Order Management System (OMS)** using **Angular ⦾ .NET Core Web API ⦾ PostgreSQL**.  
+This project is primarily designed for **learning** and **practice** purposes, featuring full **CRUD operations**, **role-based authentication**, and a modular architecture for clean separation of concerns.  
+While it's perfect for practice, it can also serve as a foundation for building real-world apps, with room for expansion and improvement as needed.
 ---
 
 ## 🧪 Tech Stack
@@ -16,7 +16,7 @@ This project features full **CRUD operations**, **role-based authentication**, a
 
 ## 📦 Features
 
-- 🧾 **POS CRUD Operations** – Manage products, carts, orders, and users
+- 🧾 **OMS CRUD Operations** – Manage orders, products, carts, and users
 - 🔐 **JWT Authentication with Role Support** – Login and JWT token management with route guarding via Angular's AuthGuard
 - ⚙️ **RESTful APIs** – Clean separation of controllers, services, and models
 - 🎯 **Angular Architecture** – Modular, scalable, and testable frontend
@@ -31,4 +31,4 @@ This project features full **CRUD operations**, **role-based authentication**, a
 Make sure [Node.js](https://nodejs.org/), [.NET 8 SDK](https://dotnet.microsoft.com/download), and [PostgreSQL](https://www.postgresql.org/) are installed.
 
 ```bash
-git clone https://github.com/yourname/pos-crud-starter-template.git
+git clone https://github.com/johnlodan/angular-netcoreapi-postgresql.git
